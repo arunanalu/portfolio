@@ -1,9 +1,62 @@
 .firstScreen {
-  /* background-color: rgba(0, 0, 255, 0.39); */
   height: 100vh;
 }
 
 .secondScreen {
-  /* background-color: rgba(0, 128, 0, 0.432); */
   height: 100vh;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid yellow; */
+}
+
+.buttonBox * {
+  font-size: 13px;
+}
+
+@media screen and (min-width: 800px) {
+  .buttonBox * {
+    font-size: 16px;
+  }
+}
+
+.arrowButton {
+  width: 5em;
+  height: 5em;
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
+  /* border: 2px solid yellow; */
+  position: relative;
+}
+
+.arrowBox {
+  position: absolute;
+  top: -1.9em;
+  right: 0.6em ;
+}
+
+.arrow {
+  position: relative;
+  background-color: rgb(0, 194, 0);
+  border-radius: 2em;
+  height: 3.8em;
+  width: 3.8em;
+  transform: rotate(270deg);
+  clip-path: polygon(35% 0, 10% 50%, 35% 100%, 25% 100%, 0 50%, 25% 0%);
+  margin-bottom: -2.7em;
+  animation: color_change 4s infinite;
+}
+
+@keyframes color_change {
+  0% { background-color: rgb(0, 194, 0); }
+  35% { background-color: blue; }
+  70% { background-color: rgb(228, 6, 117); }
+  100% { background-color: rgb(0, 194, 0); }
 }

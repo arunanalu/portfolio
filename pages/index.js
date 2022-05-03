@@ -6,6 +6,15 @@ export default function Home() {
     <Layout>
       <div className={styles.firstScreen}>
         <h2>Título</h2>
+        <div className={styles.buttonBox}>
+          <button className={styles.arrowButton}>
+            <div className={styles.arrowBox}>
+              <div className={styles.arrow} />
+              <div className={styles.arrow} />
+              <div className={styles.arrow} />
+            </div>
+          </button>
+        </div>
       </div>
       <div className={styles.secondScreen}>
         div2
