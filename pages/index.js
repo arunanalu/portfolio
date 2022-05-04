@@ -1,4 +1,5 @@
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
+import ProjectSlider from "../components/ProjectSlider";
 import styles from "../styles/home.module.css"
 
 export default function Home() {
@@ -12,21 +13,23 @@ export default function Home() {
     <Layout>
       <div className={styles.firstScreen}>
         <h2>Título</h2>
+        <a href="https://drive.google.com/u/0/uc?id=1nYofhKGM0kOfAYZscyq_555-QoCqHsrm&export=download">Download CV</a>
         <div className={styles.buttonBox}>
-          <button
+          <a
            className={styles.arrowButton}
            onClick={scrollToelement}
+           type="button"
           >
             <div className={styles.arrowBox}>
               <div className={styles.arrow} />
               <div className={styles.arrow} />
               <div className={styles.arrow} />
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div className={styles.secondScreen} id="page2">
-        div2
+        <ProjectSlider />
       </div>
     </Layout>
   )

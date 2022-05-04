@@ -1,0 +1,7 @@
+.projectImageContainer {
+  position: relative;
+  margin: auto;
+  border: 4px solid green;
+  height: 20em;
+  width: 15em;
+}

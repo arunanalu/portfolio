@@ -31,10 +31,10 @@
 .arrowButton {
   width: 5em;
   height: 5em;
-  background: none;
-	border: none;
+  /* background: none; */
+	/* border: none; */
   /* border: 1px solid yellow; */
-  overflow: hidden;
+  /* overflow: hidden; */
   /* background: linear-gradient(to right, blue 50%, yellow 50%); */
 }
 
