@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import ProjectSlider from "../components/ProjectSlider";
 import styles from "../styles/home.module.css"
 
