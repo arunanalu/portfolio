@@ -1,7 +1,42 @@
+
+.slide {
+  border: 2px solid green;
+  padding-top: 2em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.prevArrow {
+  /* border: 2px solid green; */
+  position: absolute;
+  left: 0.8em;
+  z-index: 1;
+  transform: scale(2.2);
+}
+
+.nextArrow {
+  /* border: 2px solid green; */
+  position: absolute;
+  right: 0.8em;
+  z-index: 1;
+  transform: scale(2.2);
+}
+
+.projectCardContainer {
+  border: 2px solid green;
+  width: 100%;
+}
+
 .projectImageContainer {
+  /* position of Image in next.js is absolute */
   position: relative;
   margin: auto;
-  border: 4px solid green;
+  border: 2px solid green;
   height: 20em;
   width: 15em;
+  margin-top: 0.5em;
 }

@@ -2,6 +2,8 @@ import Image from "next/image"
 import { useState } from "react"
 import { projectData } from "../data/projectData"
 import styles from './projectSlider.module.css'
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+
 
 export default function ProjectSlider() {
   const [currentSlide, setSlide] = useState(0)
@@ -17,13 +19,15 @@ export default function ProjectSlider() {
   }
 
   return (
-    <section>
-      <a onClick={prevSlide}>Voltar</a>
-      <a onClick={nextSlide}>Avançar</a>
+    <section className={styles.slide}>
+      <IoIosArrowDropleftCircle onClick={prevSlide} className={styles.prevArrow} />
+      <IoIosArrowDroprightCircle onClick={nextSlide} className={styles.nextArrow} />
+      {/* <a onClick={prevSlide} className={styles.prevArrow}>Voltar</a> */}
+      {/* <a onClick={nextSlide} className={styles.nextArrow}>Avançar</a> */}
       {projectData.map((element, index) => {
         return (
           index === currentSlide && (
-            <div key={index}>
+            <div key={index} className={styles.projectCardContainer}>
               <p>{element.description}</p>
               <div className={styles.projectImageContainer}>
                 <Image 
