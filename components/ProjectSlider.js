@@ -2,11 +2,17 @@ import Image from "next/image"
 import { useState } from "react"
 import { projectData } from "../data/projectData"
 import styles from './projectSlider.module.css'
-import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+import { 
+  IoIosArrowDropleftCircle, 
+  IoIosArrowDroprightCircle,
+  IoIosExpand,
+  IoIosClose,
+} from "react-icons/io";
 
 
 export default function ProjectSlider() {
   const [currentSlide, setSlide] = useState(0)
+  const [isExpanded, setExpanded] = useState(false)
 
   const length = projectData.length
 
@@ -16,6 +22,10 @@ export default function ProjectSlider() {
 
   const prevSlide = () => {
     setSlide(currentSlide === 0 ? length - 1 : currentSlide - 1)
+  }
+
+  const handleExpand = () => {
+    setExpanded(!isExpanded)
   }
 
   return (
@@ -28,7 +38,7 @@ export default function ProjectSlider() {
         return (
           index === currentSlide && (
             <div key={index} className={styles.projectCardContainer}>
-              <p>{element.description}</p>
+              <h1>{element.title}</h1>
               <div className={styles.projectImageContainer}>
                 <Image 
                   alt="projeto"
@@ -37,6 +47,23 @@ export default function ProjectSlider() {
                   objectFit="contain"
                 />
               </div>
+              <IoIosExpand onClick={handleExpand} className={styles.expandIcon} />
+              {
+                isExpanded && (
+                  <div className={styles.expanded}>
+                    <IoIosClose className={styles.closeIcon} onClick={handleExpand} />
+                    <div className={styles.projectImageContainerExpanded}>
+                      <Image 
+                        alt="projeto"
+                        src={element.image}
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                  </div>
+                )
+              }
+              <p className={styles.description}>{element.description}</p>
             </div>
           )
         )
