@@ -47,7 +47,10 @@ export default function ProjectSlider() {
                   objectFit="contain"
                 />
               </div>
-              <IoIosExpand onClick={handleExpand} className={styles.expandIcon} />
+              <div onClick={handleExpand} className={styles.openImage}>
+                <p>Abrir imagem</p>
+                <IoIosExpand className={styles.expandIcon} />
+              </div>
               {
                 isExpanded && (
                   <div className={styles.expanded}>
