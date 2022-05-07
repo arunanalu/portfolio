@@ -6,4 +6,5 @@
 .secondScreen {
   /* height: 100vh; */
   min-height: -webkit-fill-available;
+  /* background: linear-gradient(to bottom, blue 50%, yellow 50%); */
 }

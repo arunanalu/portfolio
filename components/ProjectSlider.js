@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image"
 import { useState } from "react"
 import { projectData } from "../data/projectData"
@@ -40,17 +41,28 @@ export default function ProjectSlider() {
             <div key={index} className={styles.projectCardContainer}>
               <h1>{element.title}</h1>
               <div className={styles.projectImageContainer}>
-                <Image 
+                {/* <Image 
                   alt="projeto"
                   src={element.image}
                   layout="fill"
+                  height="100%"
+                  width="100%"
                   objectFit="contain"
+                  className={styles.image}
+                /> */}
+                <img 
+                  alt="projeto"
+                  src={element.image}
+                  loading="lazy"
+                  className={styles.image}
+                  onClick={handleExpand}
                 />
               </div>
-              <div onClick={handleExpand} className={styles.openImage}>
+              {/* <div onClick={handleExpand} className={styles.openImage}>
                 <p>Abrir imagem</p>
                 <IoIosExpand className={styles.expandIcon} />
-              </div>
+              </div> */}
+              <p className={styles.description}>{element.description}</p>
               {
                 isExpanded && (
                   <div className={styles.expanded}>
@@ -66,7 +78,6 @@ export default function ProjectSlider() {
                   </div>
                 )
               }
-              <p className={styles.description}>{element.description}</p>
             </div>
           )
         )
