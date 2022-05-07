@@ -16,7 +16,7 @@
   /* border: 2px solid green; */
   position: absolute;
   left: 1em;
-  top: 95vh;
+  top: 85vh;
   z-index: 1;
   transform: scale(2.2);
 }
@@ -25,7 +25,7 @@
   /* border: 2px solid green; */
   position: absolute;
   right: 1em;
-  top: 95vh;
+  top: 85vh;
   z-index: 1;
   transform: scale(2.2);
 }
