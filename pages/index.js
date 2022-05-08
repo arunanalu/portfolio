@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className={styles.firstScreen}>
+      <div className={styles.firstScreen} id="page1">
         <h2>Mayu Satori</h2>
         <a href="https://drive.google.com/u/0/uc?id=1nYofhKGM0kOfAYZscyq_555-QoCqHsrm&export=download">Download CV</a>
         <h3>PROJETOS</h3>

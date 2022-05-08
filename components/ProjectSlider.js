@@ -8,8 +8,12 @@ import {
   IoIosArrowDroprightCircle,
   IoIosExpand,
   IoIosClose,
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoLogoGithub
 } from "react-icons/io";
-
+import { IoArrowUndoOutline } from "react-icons/io5"
+import { GoLink } from "react-icons/Go"
 
 export default function ProjectSlider() {
   const [currentSlide, setSlide] = useState(0)
@@ -29,12 +33,18 @@ export default function ProjectSlider() {
     setExpanded(!isExpanded)
   }
 
+  function scrollToelement() {
+    const element = document.getElementById('page1');
+    element.scrollIntoView({behavior: "smooth"});
+  };
+
   return (
     <section className={styles.slide}>
-      <IoIosArrowDropleftCircle onClick={prevSlide} className={styles.prevArrow} />
-      <IoIosArrowDroprightCircle onClick={nextSlide} className={styles.nextArrow} />
+      <IoIosArrowBack onClick={prevSlide} className={styles.prevArrow} />
+      <IoIosArrowForward onClick={nextSlide} className={styles.nextArrow} />
       {/* <a onClick={prevSlide} className={styles.prevArrow}>Voltar</a> */}
       {/* <a onClick={nextSlide} className={styles.nextArrow}>Avançar</a> */}
+      <IoArrowUndoOutline onClick={scrollToelement} className={styles.backButton} />
       {projectData.map((element, index) => {
         return (
           index === currentSlide && (
@@ -63,6 +73,16 @@ export default function ProjectSlider() {
                 <IoIosExpand className={styles.expandIcon} />
               </div> */}
               <p className={styles.description}>{element.description}</p>
+              <nav className={styles.redirectNav}>
+                <a href={element.github} target="_blank" rel="noopener noreferrer">
+                  <p>GitHub</p>
+                  <IoLogoGithub />
+                </a>
+                <a href={element.website} target="_blank" rel="noopener noreferrer">
+                  <p>Site</p>
+                  <GoLink />
+                </a>
+              </nav>
               {
                 isExpanded && (
                   <div className={styles.expanded}>
