@@ -13,7 +13,7 @@ import {
   IoLogoGithub
 } from "react-icons/io";
 import { IoArrowUndoOutline } from "react-icons/io5"
-import { GoLink } from "react-icons/Go"
+import { GoLink } from "react-icons/go"
 
 export default function ProjectSlider() {
   const [currentSlide, setSlide] = useState(0)
