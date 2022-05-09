@@ -66,7 +66,7 @@ export default function ProjectSlider() {
               </nav>
               {
                 isExpanded && (
-                  <div className={`${styles.expanded} animate-scaleInCenter bg-[#000000e6] absolute w-[100%] h-[100%] top-0`}>
+                  <div className="animate-scaleInCenter bg-[#000000e6] absolute w-[100%] h-[100%] top-0">
                     <IoIosClose className="scale-[2.5] mt-3 ml-2" onClick={handleExpand} />
                     <div className="relative h-[80vh] m-auto w-[90%] mt-6">
                       <Image 
