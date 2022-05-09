@@ -2,11 +2,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import { projectData } from "../data/projectData"
-import styles from './projectSlider.module.css'
 import { 
-  IoIosArrowDropleftCircle, 
-  IoIosArrowDroprightCircle,
-  IoIosExpand,
   IoIosClose,
   IoIosArrowBack,
   IoIosArrowForward,
@@ -39,54 +35,40 @@ export default function ProjectSlider() {
   };
 
   return (
-    <section className={styles.slide}>
-      <IoIosArrowBack onClick={prevSlide} className={styles.prevArrow} />
-      <IoIosArrowForward onClick={nextSlide} className={styles.nextArrow} />
-      {/* <a onClick={prevSlide} className={styles.prevArrow}>Voltar</a> */}
-      {/* <a onClick={nextSlide} className={styles.nextArrow}>Avançar</a> */}
-      <IoArrowUndoOutline onClick={scrollToelement} className={styles.backButton} />
+    <section className="pt-2 relative flex flex-col text-center h-full overflow-hidden">
+      <IoIosArrowBack onClick={prevSlide} className="absolute left-3 top-[85vh] scale-[2.2] text-mayuGreen" />
+      <IoIosArrowForward onClick={nextSlide} className="absolute right-3 top-[85vh] scale-[2.2] text-mayuGreen" />
+      <IoArrowUndoOutline onClick={scrollToelement} className="ml-2 mt-[0.2rem] -scale-x-[1.6] scale-y-[1.6] rotate-[270deg] text-mayuGreen" />
       {projectData.map((element, index) => {
         return (
           index === currentSlide && (
-            <div key={index} className={styles.projectCardContainer}>
+            <div key={index}>
               <h1>{element.title}</h1>
-              <div className={styles.projectImageContainer}>
+              <div className="relative m-auto w-[70%] h-[10rem] mt-3">
                 <Image 
                   alt="projeto"
                   src={element.image}
                   layout="fill"
                   objectFit="contain"
-                  className={styles.image}
                   onClick={handleExpand}
                 />
-                {/* <img 
-                  alt="projeto"
-                  src={element.image}
-                  loading="lazy"
-                  className={styles.image}
-                  onClick={handleExpand}
-                /> */}
               </div>
-              {/* <div onClick={handleExpand} className={styles.openImage}>
-                <p>Abrir imagem</p>
-                <IoIosExpand className={styles.expandIcon} />
-              </div> */}
-              <p className={styles.description}>{element.description}</p>
-              <nav className={styles.redirectNav}>
-                <a href={element.github} target="_blank" rel="noopener noreferrer">
-                  <p>GitHub</p>
+              <p className="text-justify w-[90%] m-auto mt-3">{element.description}</p>
+              <nav className="flex justify-evenly mt-3">
+                <a className="flex items-center" href={element.github} target="_blank" rel="noopener noreferrer">
+                  <p className="mr-2">GitHub</p>
                   <IoLogoGithub />
                 </a>
-                <a href={element.website} target="_blank" rel="noopener noreferrer">
-                  <p>Site</p>
+                <a className="flex items-center" href={element.website} target="_blank" rel="noopener noreferrer">
+                  <p className="mr-2">Site</p>
                   <GoLink />
                 </a>
               </nav>
               {
                 isExpanded && (
-                  <div className={styles.expanded}>
-                    <IoIosClose className={styles.closeIcon} onClick={handleExpand} />
-                    <div className={styles.projectImageContainerExpanded}>
+                  <div className={`${styles.expanded} animate-scaleInCenter bg-[#000000e6] absolute w-[100%] h-[100%] top-0`}>
+                    <IoIosClose className="scale-[2.5] mt-3 ml-2" onClick={handleExpand} />
+                    <div className="relative h-[80vh] m-auto w-[90%] mt-6">
                       <Image 
                         alt="projeto"
                         src={element.image}
