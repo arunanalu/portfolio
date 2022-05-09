@@ -36,14 +36,14 @@ export default function ProjectSlider() {
 
   return (
     <section className="pt-2 relative flex flex-col text-center h-full overflow-hidden">
-      <IoIosArrowBack onClick={prevSlide} className="absolute left-3 top-[85vh] scale-[2.2] text-mayuGreen" />
-      <IoIosArrowForward onClick={nextSlide} className="absolute right-3 top-[85vh] scale-[2.2] text-mayuGreen" />
-      <IoArrowUndoOutline onClick={scrollToelement} className="ml-2 mt-[0.2rem] -scale-x-[1.6] scale-y-[1.6] rotate-[270deg] text-mayuGreen" />
+      <IoIosArrowBack onClick={prevSlide} className="absolute left-3 top-[85vh] scale-[2.2] text-mayuGreen cursor-pointer" />
+      <IoIosArrowForward onClick={nextSlide} className="absolute right-3 top-[85vh] scale-[2.2] text-mayuGreen cursor-pointer" />
+      <IoArrowUndoOutline onClick={scrollToelement} className="ml-2 mt-[0.2rem] -scale-x-[1.6] scale-y-[1.6] rotate-[270deg] text-mayuGreen cursor-pointer" />
       {projectData.map((element, index) => {
         return (
           index === currentSlide && (
             <div key={index}>
-              <h1>{element.title}</h1>
+              <h1 className="text-xl font-medium">{element.title}</h1>
               <div className="relative m-auto w-[70%] h-[10rem] mt-6">
                 <Image 
                   alt="projeto"
@@ -51,23 +51,24 @@ export default function ProjectSlider() {
                   layout="fill"
                   objectFit="contain"
                   onClick={handleExpand}
+                  className="cursor-pointer"
                 />
               </div>
               <p className="text-justify w-[90%] m-auto mt-6">{element.description}</p>
               <nav className="flex justify-evenly mt-3">
                 <a className="flex items-center" href={element.github} target="_blank" rel="noopener noreferrer">
-                  <p className="mr-2">GitHub</p>
-                  <IoLogoGithub />
+                  <p className="mr-2 text-[#0070f3]">GitHub</p>
+                  <IoLogoGithub className="text-[#0070f3]" />
                 </a>
                 <a className="flex items-center" href={element.website} target="_blank" rel="noopener noreferrer">
-                  <p className="mr-2">Site</p>
-                  <GoLink />
+                  <p className="mr-2 text-[#0070f3]">Site</p>
+                  <GoLink className="text-[#0070f3]" />
                 </a>
               </nav>
               {
                 isExpanded && (
                   <div className="animate-scaleInCenter bg-[#000000e6] absolute w-[100%] h-[100%] top-0">
-                    <IoIosClose className="scale-[2.5] mt-3 ml-2" onClick={handleExpand} />
+                    <IoIosClose className="cursor-pointer scale-[2.5] mt-3 ml-2" onClick={handleExpand} />
                     <div className="relative h-[80vh] m-auto w-[90%] mt-6">
                       <Image 
                         alt="projeto"
