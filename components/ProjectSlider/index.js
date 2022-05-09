@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image"
 import { useState } from "react"
-import { projectData } from "../data/projectData"
+import { projectData } from "../../data/projectData"
 import { 
   IoIosClose,
   IoIosArrowBack,
@@ -44,7 +44,7 @@ export default function ProjectSlider() {
           index === currentSlide && (
             <div key={index}>
               <h1>{element.title}</h1>
-              <div className="relative m-auto w-[70%] h-[10rem] mt-3">
+              <div className="relative m-auto w-[70%] h-[10rem] mt-6">
                 <Image 
                   alt="projeto"
                   src={element.image}
@@ -53,7 +53,7 @@ export default function ProjectSlider() {
                   onClick={handleExpand}
                 />
               </div>
-              <p className="text-justify w-[90%] m-auto mt-3">{element.description}</p>
+              <p className="text-justify w-[90%] m-auto mt-6">{element.description}</p>
               <nav className="flex justify-evenly mt-3">
                 <a className="flex items-center" href={element.github} target="_blank" rel="noopener noreferrer">
                   <p className="mr-2">GitHub</p>
